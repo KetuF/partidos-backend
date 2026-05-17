@@ -9,7 +9,9 @@ const goleadoresRoutes = require('./routes/goleadoresRoutes');
 
 const app = express();
 app.use(cors({
-  origin: 'https://partidos-frontend.vercel.app'
+  origin: 'https://partidos-frontend.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
