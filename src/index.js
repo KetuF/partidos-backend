@@ -8,7 +8,9 @@ const partidosRoutes = require('./routes/partidosRoutes');
 const goleadoresRoutes = require('./routes/goleadoresRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://partidos-frontend.vercel.app'
+}));
 app.use(express.json());
 
 app.use('/categorias', categoriasRoutes);
