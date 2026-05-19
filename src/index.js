@@ -6,6 +6,7 @@ const categoriasRoutes = require('./routes/categoriasRoutes');
 const equiposRoutes = require('./routes/equiposRoutes');
 const partidosRoutes = require('./routes/partidosRoutes');
 const goleadoresRoutes = require('./routes/goleadoresRoutes');
+const sancionesRoutes = require('./routes/sancionesRoutes');
 
 const app = express();
 app.use(cors({
@@ -19,6 +20,7 @@ app.use('/categorias', categoriasRoutes);
 app.use('/equipos', equiposRoutes);
 app.use('/partidos', partidosRoutes);
 app.use('/goleadores', goleadoresRoutes);
+app.use('/sanciones', sancionesRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
