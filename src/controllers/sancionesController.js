@@ -5,7 +5,7 @@ const GetSanciones = async (req, res) => {
         const { categoria_id } = req.params;
 
         const [ultimaFecha] = await db.query(
-            'SELECT MAX(numero_fecha) as ultima FROM partidos WHERE categoria_id = ?',
+            'SELECT MAX(numero_fecha) as ultima FROM partidos WHERE categoria_id = ? AND jugado = 1',
             [categoria_id]
         );
         const fechaActual = ultimaFecha[0].ultima || 0;
