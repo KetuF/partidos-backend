@@ -23,7 +23,6 @@ const GetEquiposPorCategoria = async (req, res) => {
         );
         res.json(rows);
     } catch (error) {
-        console.log(error);
         res.status(500).json({ mensaje: 'Error al obtener equipos' });
     }
 };
