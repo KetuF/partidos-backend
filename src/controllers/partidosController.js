@@ -7,7 +7,9 @@ const GetPartidosPorCategoria = async (req, res) => {
             SELECT p.id, p.fecha, p.hora, p.jugado, p.numero_fecha,
                    p.goles_local, p.goles_visitante,
                    el.nombre as equipo_local,
-                   ev.nombre as equipo_visitante
+                   el.escudo AS escudo_local,
+                   ev.nombre as equipo_visitante,
+                   ev.escudo AS escudo_visitante
             FROM partidos p
             JOIN equipos el ON p.equipo_local_id = el.id
             JOIN equipos ev ON p.equipo_visitante_id = ev.id
@@ -28,7 +30,9 @@ const GetPartidosPorEquipo = async (req, res) => {
             SELECT p.id, p.fecha, p.hora, p.jugado,
                    p.goles_local, p.goles_visitante,
                    el.nombre as equipo_local,
-                   ev.nombre as equipo_visitante
+                   el.escudo AS escudo_local,
+                   ev.nombre as equipo_visitante,
+                   ev.escudo AS escudo_visitante
             FROM partidos p
             JOIN equipos el ON p.equipo_local_id = el.id
             JOIN equipos ev ON p.equipo_visitante_id = ev.id
