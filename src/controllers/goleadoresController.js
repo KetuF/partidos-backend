@@ -4,7 +4,7 @@ const GetGoleadoresPorCategoria = async (req, res) => {
     try {
         const { categoria_id } = req.params;
         const [rows] = await db.query(`
-            SELECT g.id, g.nombre_jugador, g.goles, e.nombre as equipo
+            SELECT g.id, g.nombre_jugador, g.goles, g.foto, e.nombre as equipo, e.escudo
             FROM goleadores g
             JOIN equipos e ON g.equipo_id = e.id
             WHERE e.categoria_id = ?
