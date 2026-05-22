@@ -8,6 +8,7 @@ const partidosRoutes = require('./routes/partidosRoutes');
 const goleadoresRoutes = require('./routes/goleadoresRoutes');
 const sancionesRoutes = require('./routes/sancionesRoutes');
 const amonestacionesRoutes = require('./routes/amonestacionesRoutes');
+const plantillaRoutes = require('./routes/plantillaRoutes');
 
 const app = express();
 app.use(cors({
@@ -23,6 +24,7 @@ app.use('/partidos', partidosRoutes);
 app.use('/goleadores', goleadoresRoutes);
 app.use('/sanciones', sancionesRoutes);
 app.use('/amonestaciones', amonestacionesRoutes);
+app.use('/plantilla', plantillaRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
