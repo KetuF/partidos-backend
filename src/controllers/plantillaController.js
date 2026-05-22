@@ -11,8 +11,8 @@ const GetPlantillaPorEquipo = async (req,res)=>{
             SELECT
                 id,
                 nombre,
-                apellido
-
+                apellido,
+                dni
             FROM plantilla
 
             WHERE equipo_id=?
