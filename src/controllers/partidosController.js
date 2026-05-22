@@ -29,6 +29,7 @@ const GetPartidosPorEquipo = async (req, res) => {
         const [rows] = await db.query(`
             SELECT p.id, p.fecha, p.hora, p.jugado,
                    p.goles_local, p.goles_visitante,
+                   p.numero_fecha,
                    el.nombre as equipo_local,
                    el.escudo AS escudo_local,
                    ev.nombre as equipo_visitante,
