@@ -12,7 +12,7 @@ const GetSanciones = async (req, res) => {
 
         const [rows] = await db.query(`
             SELECT s.id, s.nombre_jugador, s.tipo, s.partidos_sancion, s.numero_fecha_inicio,
-                   e.nombre as equipo,
+                   e.escudo, e.nombre as equipo,
                    (s.partidos_sancion - (? - s.numero_fecha_inicio)) as fechas_restantes
             FROM sanciones s
             JOIN equipos e ON s.equipo_id = e.id
