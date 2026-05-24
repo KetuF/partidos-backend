@@ -1,9 +1,6 @@
 const db = require('../config/db');
 const cache=require('../utils/cache');
 
-const db = require('../config/db');
-const cache=require('../utils/cache');
-
 const GetEquipos = async (req, res) => {
     try {
         const key='equipos';
