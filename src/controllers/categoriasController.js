@@ -1,24 +1,35 @@
 const db = require('../config/db');
+const cache = require('../utils/cache');
 
 const GetCategorias = async (req, res) => {
     try {
+        const key = 'categorias';
+        const cacheData =
+            cache.get(key);
+        if (cacheData) {
+            return res.json(
+                cacheData
+            );
+        }
 
-        console.log('ENTRO A CATEGORIAS');
-
-        const [rows] = await db.query('SELECT * FROM categorias');
-
-        console.log(rows);
-
+        const [rows] =
+            await db.query(
+                'SELECT * FROM categorias'
+            );
+        cache.set(
+            key,
+            rows
+        );
         res.json(rows);
-
     } catch (error) {
-
-        console.log('ERROR SQL:', error);
-
         res.status(500).json({
             mensaje: error.message
         });
+
     }
+
 };
 
-module.exports = { GetCategorias };
+module.exports = {
+    GetCategorias
+};
